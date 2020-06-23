@@ -1,26 +1,118 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Mask from './Mask'
+import Keyboard from './Keyboard'
+
+const LETTERS = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+
+class App extends Component {
+
+
+	constructor(){
+		super()
+
+		/*	Etat local	*/
+		this.state = this.getInitState()
+	}
+	
+
+	/*	Méthode de rendu du composant	*/
+	render(){
+		const { mask, testedLetters, won } = this.state
+		console.log(this.state)
+	  	return (
+	    	<div className="hangman">
+	    		<Mask mask={mask} />
+
+	    		{
+	    			won ? <Restart onClick={this.handleRestartClick} /> :
+	    				<Keyboard 
+	    					letters={LETTERS} 
+	    					testedLetters={testedLetters}
+	    					onClick={this.handleLetterClick}
+	    				/>
+	    		}
+
+	    	</div>
+	  	)
+	}
+
+	/*	Gestionnaire de clic sur une lettre 	*/
+	/* @autobind */
+	handleLetterClick = letter => {
+		const { mask, testedLetters, word } = this.state
+		const newMask = this.revealLetter(letter)
+
+		if(!testedLetters.includes(letter))
+		{
+			testedLetters.push(letter)
+
+			this.setState({
+				testedLetters: testedLetters,
+				mask: newMask,
+				won: word.every((char, index) => char === newMask[index] )
+			})
+		}
+	}
+
+	/*	Gestionnaire de l'évènement Recommencer*/
+	/* @autobind */
+	handleRestartClick = () => { 
+		this.setState( this.getInitState() ) 
+	}
+
+	/*	Révèle la lettre en paramètres et retourne le nouveau masque	*/
+	revealLetter( letter ){
+		const { mask, word } = this.state
+
+		return mask.map((char, i) => letter===word[i] ? word[i] : char)
+	}
+
+	/*	Renvoie un mot aléatoire de la liste locale	*/
+	getRandomWord(){
+		return Array.from(words[ Math.floor(Math.random() * words.length )]);
+	}
+
+	getInitState(){
+		const word = this.getRandomWord()
+
+		return { 
+			word: word,
+			mask: getInitialMask(word),
+			testedLetters: [],
+			won: false
+		}
+	}
+
 }
+
+/*	Méthode retournant le mot masqué de départ	*/
+function getInitialMask(word){
+	return word.map((letter, index)=>[0,word.length-1].includes(index) ? letter : '_')
+}
+
+/*	Bouton recommencer	*/
+function Restart({ onClick }){ 
+	 
+	return <button className="restart" onClick={onClick}>
+		Recommencer
+	</button>
+}
+
+const words = [
+	'MANGER',
+	'BOIRE',
+	'DORMIR',
+	'POMME',
+	'POIRE',
+	'FRAISE',
+	'FRAMBOISE',
+	'SUPREME',
+	'PALACE',
+	'GUCCI'
+]
+
 
 export default App;

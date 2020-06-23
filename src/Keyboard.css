@@ -1,0 +1,39 @@
+.keyboard{
+	margin:0;
+	padding:0;
+	max-width:55vw;
+
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.keyboard > .letter{
+	width:4vw; height: 4vw;
+	margin:5px;
+	min-width: 40px;min-height: 40px;
+
+	background-color: #DDDDDDDD;
+  	border: 2px solid #888;
+  	border-radius: 4px;
+
+  	font-family:arial;
+  	color: #888;
+  	text-align: center;
+}
+
+.keyboard > .letter:hover{
+	background-color:  #888;
+	color:white;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.keyboard > .letter.tested{
+	background-color:  #888;
+	color:white;
+}
+
+.keyboard > .letter.tested:hover{
+	cursor:not-allowed;
+}
