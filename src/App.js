@@ -21,7 +21,6 @@ class App extends Component {
 	/*	Méthode de rendu du composant	*/
 	render(){
 		const { mask, testedLetters, won } = this.state
-		console.log(this.state)
 	  	return (
 	    	<div className="hangman">
 	    		<Mask mask={mask} />
@@ -72,7 +71,7 @@ class App extends Component {
 
 	/*	Renvoie un mot aléatoire de la liste locale	*/
 	getRandomWord(){
-		return Array.from(words[ Math.floor(Math.random() * words.length )]);
+		return Array.from(WORDS[ Math.floor(Math.random() * WORDS.length )]);
 	}
 
 	getInitState(){
@@ -93,7 +92,7 @@ function getInitialMask(word){
 	return word.map((letter, index)=>[0,word.length-1].includes(index) ? letter : '_')
 }
 
-/*	Bouton recommencer	*/
+/*	Bouton recommencer	(composant) */
 function Restart({ onClick }){ 
 	 
 	return <button className="restart" onClick={onClick}>
@@ -101,7 +100,7 @@ function Restart({ onClick }){
 	</button>
 }
 
-const words = [
+const WORDS = [
 	'MANGER',
 	'BOIRE',
 	'DORMIR',
