@@ -4,6 +4,8 @@ import { expect } from 'chai'
 import sinon from 'sinon'
 
 import App from './App'
+import Restart from './App'
+import { on } from 'events'
 
 describe('<App />', () => {
 

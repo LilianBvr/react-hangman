@@ -24,7 +24,9 @@ class App extends Component {
 	    		<Mask mask={mask} />
 
 	    		{
-	    			won ? <Restart onClick={this.handleRestartClick} /> :
+	    			won ? <button className="restart" onClick={this.handleRestartClick}>
+							Recommencer
+						</button> :
 	    				<Keyboard 
 	    					letters={LETTERS} 
 	    					testedLetters={testedLetters}
@@ -90,13 +92,6 @@ class App extends Component {
 	}
 }
 
-/*	Bouton recommencer	(composant) */
-function Restart({ onClick }){ 
-	 
-	return <button className="restart" onClick={onClick}>
-		Recommencer
-	</button>
-}
 
 const WORDS = [
 	'MANGER',
