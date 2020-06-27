@@ -31,6 +31,8 @@ describe(' <Keyboard /> ', () => {
             wrapper.find('.letter').at(4).simulate('click')
             expect(onClickMock).to.have.been.called()
         })
+
+        //TODO : verifier que les lettres testées sont en .hidden
     
     })
 
