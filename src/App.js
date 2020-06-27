@@ -72,21 +72,22 @@ class App extends Component {
 		return Array.from(WORDS[ Math.floor(Math.random() * WORDS.length )]);
 	}
 
+	/*	Renvoie l'état initial	*/
 	getInitState(){
 		const word = this.getRandomWord()
 
 		return { 
 			word: word,
-			mask: getInitialMask(word),
+			mask: this.getInitialMask(word),
 			testedLetters: [],
 			won: false
 		}
 	}
-}
 
-/*	Méthode retournant le mot masqué de départ	*/
-function getInitialMask(word){
-	return word.map((letter, index)=>[0,word.length-1].includes(index) ? letter : '_')
+	/*	Méthode retournant le mot masqué de départ	*/
+	getInitialMask(word){
+		return word.map((letter, index)=>[0,word.length-1].includes(index) ? letter : '_')
+	}
 }
 
 /*	Bouton recommencer	(composant) */
