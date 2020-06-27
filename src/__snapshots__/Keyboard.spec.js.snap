@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` <Keyboard />  should match its reference snapshot 1`] = `
+<div
+  className="keyboard"
+>
+  <button
+    className="letter "
+    key="0"
+    onClick={[Function]}
+  >
+    A
+  </button>
+  <button
+    className="letter "
+    key="1"
+    onClick={[Function]}
+  >
+    B
+  </button>
+  <button
+    className="letter "
+    key="2"
+    onClick={[Function]}
+  >
+    C
+  </button>
+  <button
+    className="letter "
+    key="3"
+    onClick={[Function]}
+  >
+    D
+  </button>
+  <button
+    className="letter "
+    key="4"
+    onClick={[Function]}
+  >
+    E
+  </button>
+  <button
+    className="letter "
+    key="5"
+    onClick={[Function]}
+  >
+    F
+  </button>
+  <button
+    className="letter "
+    key="6"
+    onClick={[Function]}
+  >
+    G
+  </button>
+  <button
+    className="letter "
+    key="7"
+    onClick={[Function]}
+  >
+    H
+  </button>
+  <button
+    className="letter "
+    key="8"
+    onClick={[Function]}
+  >
+    I
+  </button>
+  <button
+    className="letter "
+    key="9"
+    onClick={[Function]}
+  >
+    J
+  </button>
+  <button
+    className="letter "
+    key="10"
+    onClick={[Function]}
+  >
+    K
+  </button>
+  <button
+    className="letter "
+    key="11"
+    onClick={[Function]}
+  >
+    L
+  </button>
+  <button
+    className="letter "
+    key="12"
+    onClick={[Function]}
+  >
+    M
+  </button>
+  <button
+    className="letter "
+    key="13"
+    onClick={[Function]}
+  >
+    N
+  </button>
+  <button
+    className="letter "
+    key="14"
+    onClick={[Function]}
+  >
+    O
+  </button>
+  <button
+    className="letter "
+    key="15"
+    onClick={[Function]}
+  >
+    P
+  </button>
+  <button
+    className="letter "
+    key="16"
+    onClick={[Function]}
+  >
+    Q
+  </button>
+  <button
+    className="letter "
+    key="17"
+    onClick={[Function]}
+  >
+    R
+  </button>
+  <button
+    className="letter "
+    key="18"
+    onClick={[Function]}
+  >
+    S
+  </button>
+  <button
+    className="letter "
+    key="19"
+    onClick={[Function]}
+  >
+    T
+  </button>
+  <button
+    className="letter "
+    key="20"
+    onClick={[Function]}
+  >
+    U
+  </button>
+  <button
+    className="letter "
+    key="21"
+    onClick={[Function]}
+  >
+    V
+  </button>
+  <button
+    className="letter "
+    key="22"
+    onClick={[Function]}
+  >
+    W
+  </button>
+  <button
+    className="letter "
+    key="23"
+    onClick={[Function]}
+  >
+    X
+  </button>
+  <button
+    className="letter "
+    key="24"
+    onClick={[Function]}
+  >
+    Y
+  </button>
+  <button
+    className="letter "
+    key="25"
+    onClick={[Function]}
+  >
+    Z
+  </button>
+</div>
+`;
