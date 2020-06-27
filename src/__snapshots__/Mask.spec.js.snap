@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Mask /> should render and match its reference snapshot 1`] = `
+<div
+  className="mask"
+>
+  <span
+    className="letter "
+    key="0"
+  >
+    T
+  </span>
+  <span
+    className="letter hidden"
+    key="1"
+  >
+    _
+  </span>
+  <span
+    className="letter hidden"
+    key="2"
+  >
+    _
+  </span>
+  <span
+    className="letter "
+    key="3"
+  >
+    T
+  </span>
+</div>
+`;
