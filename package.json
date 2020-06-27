@@ -47,5 +47,12 @@
     "react-test-renderer": "^16.13.1",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0"
+  },
+
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   }
 }
