@@ -33,13 +33,18 @@ exports[` <Keyboard />  should render and match its reference snapshot 1`] = `
     ]
   }
   onClick={[Function]}
-  testedLetters={Array []}
+  testedLetters={
+    Array [
+      "A",
+      "E",
+    ]
+  }
 >
   <div
     className="keyboard"
   >
     <button
-      className="letter "
+      className="letter tested"
       key="0"
       onClick={[Function]}
     >
@@ -67,7 +72,7 @@ exports[` <Keyboard />  should render and match its reference snapshot 1`] = `
       D
     </button>
     <button
-      className="letter "
+      className="letter tested"
       key="4"
       onClick={[Function]}
     >

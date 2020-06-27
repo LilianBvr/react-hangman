@@ -11,7 +11,7 @@ describe(' <Keyboard /> ', () => {
     const onClickMock = sinon.spy()
     const props = {
         letters: LETTERS,
-        testedLetters: [],
+        testedLetters: ['A','E'],
         onClick: () => {onClickMock()}
     }
 
@@ -32,7 +32,21 @@ describe(' <Keyboard /> ', () => {
             expect(onClickMock).to.have.been.called()
         })
 
-        //TODO : verifier que les lettres testées sont en .hidden
+        it('should show each letter', () => {
+            
+            LETTERS.forEach((letter, index) => {
+                expect(wrapper.find('.letter').at(index).text()).to.equal(letter)
+            })
+        })
+
+        it('should set "tested" class on tested letters', () => {
+
+            LETTERS.forEach((letter, index) => {
+
+                if(props.testedLetters.includes(letter))
+                    expect(wrapper.find('.letter').at(index)).to.have.className('tested')
+            })
+        })
     
     })
 
