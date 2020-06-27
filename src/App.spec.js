@@ -4,14 +4,13 @@ import { expect } from 'chai'
 import sinon from 'sinon'
 
 import App from './App'
-import Restart from './App'
-import { on } from 'events'
 
 describe('<App />', () => {
 
 	const word = Array.from('TEST')
 	
 	it('should render and match its reference snapshot', () => {
+
 		const mock = sinon
 			.stub( App.prototype, 'getRandomWord')
 			.returns(word)
@@ -55,9 +54,72 @@ describe('<App />', () => {
 				expect(wrapper.find('Keyboard').exists()).to.be.false
 			}
 			finally{
-				mock.restore
+				mock.restore()
 			}
 		})
 
+	})
+
+	describe('implementation tests', () => {
+
+		let wrapper
+
+		it('should update mask when click on a correct letter', () => {
+
+			const mock = sinon
+				.stub( App.prototype, 'getRandomWord')
+				.returns(word)
+
+			try{
+				wrapper = mount(<App />)
+
+				wrapper.find('.keyboard .letter').at(4).simulate('click')
+				expect(wrapper.find('Mask').prop('mask')).to.deep.equal(Array.from('TE_T'))
+			}
+			finally{
+				mock.restore()
+			}
+		})
+
+		it('should NOT update the mask when clicking on a non-correct letter', () => {
+
+			const mock = sinon
+				.stub( App.prototype, 'getRandomWord')
+				.returns(word)
+
+			try{
+				wrapper = mount(<App />)
+
+				wrapper.find('.keyboard .letter').at(0).simulate('click')
+				expect(wrapper.find('Mask').prop('mask')).to.deep.equal(Array.from('T__T'))
+			}
+			finally{
+				mock.restore()
+			}
+		})
+
+		it('should restart the game when click on the restart button', () => {
+		
+			wrapper = mount(<App />)
+			wrapper.setState({ won: true })
+
+			wrapper.find('.restart').simulate('click')
+			expect(wrapper.find('Mask').prop('mask')).not.to.deep.equal(Array.from('T__T'))
+			
+		})
+
+		it('should NOT update the mask when clicking on a tested letter', () => {
+
+			wrapper = mount(<App />)
+			wrapper.setState({
+				word: Array.from('TEST'),
+				mask: Array.from('TE_T'),
+				testedLetters: ['T', 'E'],
+				won: false
+			})
+
+			wrapper.find('.keyboard .letter').at(4).simulate('click')
+			expect(wrapper.find('Mask').prop('mask')).to.deep.equal(Array.from('TE_T'))
+		})
 	})
 })
