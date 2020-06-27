@@ -1,17 +1,24 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
-import {render, fireEvent, cleanup} from '@testing-library/react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme'
+import { expect } from 'chai'
+import sinon from 'sinon'
 
 import App from './App'
 
-afterEach(cleanup)
 
 describe('<App />', () => {
+	
+	it('should render and match its reference snapshot', () => {
+		const mock = sinon
+			.stub( App.prototype, 'getRandomWord')
+			.returns(Array.from('TEST'))
 
-	it('should render without crashing', () => {
-		const wrapper = shallow(<App />)
+		try{
+			const wrapper = shallow(<App />)
+			expect(wrapper).to.matchSnapshot()
+		}
+		finally{
+			mock.restore()
+		}
 	})
-
-
 })

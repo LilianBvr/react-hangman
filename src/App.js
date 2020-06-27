@@ -5,10 +5,9 @@ import './App.css';
 import Mask from './Mask'
 import Keyboard from './Keyboard'
 
-const LETTERS = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+export const LETTERS = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
 class App extends Component {
-
 
 	constructor(){
 		super()
@@ -17,7 +16,6 @@ class App extends Component {
 		this.state = this.getInitState()
 	}
 	
-
 	/*	Méthode de rendu du composant	*/
 	render(){
 		const { mask, testedLetters, won } = this.state
@@ -84,7 +82,6 @@ class App extends Component {
 			won: false
 		}
 	}
-
 }
 
 /*	Méthode retournant le mot masqué de départ	*/
